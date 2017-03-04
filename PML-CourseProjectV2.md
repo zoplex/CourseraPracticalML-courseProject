@@ -7,7 +7,7 @@ Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible t
 
 ```r
 library(knitr)
-opts_chunk$set(warning = FALSE, cache=TRUE, fig.align='center', fig.show='hold')
+opts_chunk$set(warning = FALSE, cache=TRUE, fig.align='center', fig.show='asis')
 library(RCurl)
 library(caret)
 library(dplyr)
@@ -232,26 +232,26 @@ modsum          <- lapply(folds, proc_one_set, dfin = dftrainnona4, resulttest =
 ```
 
 ```
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:32 
-##  ......... completed proc_one_set with accuracy 0.959079283887468 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:35 
-##  ......... completed proc_one_set with accuracy 0.969309462915601 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:38 
-##  ......... completed proc_one_set with accuracy 0.946291560102302 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:40 
-##  ......... completed proc_one_set with accuracy 0.961636828644501 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:43 
-##  ......... completed proc_one_set with accuracy 0.959079283887468 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:46 
-##  ......... completed proc_one_set with accuracy 0.943589743589744 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:48 
-##  ......... completed proc_one_set with accuracy 0.941025641025641 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:51 
-##  ......... completed proc_one_set with accuracy 0.935897435897436 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:54 
-##  ......... completed proc_one_set with accuracy 0.959079283887468 
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:56 
-##  ......... completed proc_one_set with accuracy 0.966751918158568
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:03 
+##  ......... completed proc_one_set with accuracy 0.969230769230769 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:06 
+##  ......... completed proc_one_set with accuracy 0.958974358974359 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:09 
+##  ......... completed proc_one_set with accuracy 0.966666666666667 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:12 
+##  ......... completed proc_one_set with accuracy 0.979487179487179 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:14 
+##  ......... completed proc_one_set with accuracy 0.964102564102564 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:17 
+##  ......... completed proc_one_set with accuracy 0.954081632653061 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:19 
+##  ......... completed proc_one_set with accuracy 0.964194373401535 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:22 
+##  ......... completed proc_one_set with accuracy 0.956298200514139 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:24 
+##  ......... completed proc_one_set with accuracy 0.964102564102564 
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:27 
+##  ......... completed proc_one_set with accuracy 0.936061381074169
 ```
 
 ```r
@@ -261,9 +261,9 @@ predf[predf$accr==max(predf$accr),]
 
 ```
 ##   c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12 c13 c14 c15 c16 c17 c18 c19 c20
-## 2  B  A  B  A  A  E  D  D  A   A   B   C   B   A   E   E   A   B   A   B
+## 4  B  A  A  A  A  E  D  B  A   A   B   C   B   A   E   E   A   B   B   B
 ##        accr
-## 2 0.9693095
+## 4 0.9794872
 ```
 
 ```r
@@ -284,8 +284,10 @@ acrfinal        <- proc_one_set( folds[[bestrun]], dfin = dftrainnona4, resultte
 ```
 
 ```
-##  ...starting proc_one_set ... time is 2017-03-03 16:07:59
+##  ...starting proc_one_set ... time is 2017-03-03 16:41:30
 ```
+
+<img src="figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 
 ```
 ## 
@@ -295,49 +297,47 @@ acrfinal        <- proc_one_set( folds[[bestrun]], dfin = dftrainnona4, resultte
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 6
 ## 
-##         OOB estimate of  error rate: 5.09%
+##         OOB estimate of  error rate: 4.58%
 ## Confusion matrix:
 ##     A   B   C   D   E class.error
-## A 435   1   1   1   0 0.006849315
-## B  13 276  11   3   2 0.095081967
-## C   0  18 245   1   0 0.071969697
-## D   0   1  14 265   0 0.053571429
-## E   0   2   7   5 270 0.049295775
+## A 428   1   0   2   0 0.006960557
+## B  14 285  13   1   2 0.095238095
+## C   0  11 249   1   1 0.049618321
+## D   2   0  13 266   0 0.053380783
+## E   0   2   4   5 272 0.038869258
 ## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction   A   B   C   D   E
-##          A 109   2   0   0   0
-##          B   0  73   4   0   0
-##          C   0   1  61   1   1
-##          D   0   0   1  68   2
+##          A 107   2   0   0   0
+##          B   0  74   2   0   0
+##          C   0   1  63   0   1
+##          D   0   1   0  70   1
 ##          E   0   0   0   0  68
 ## 
 ## Overall Statistics
 ##                                         
-##                Accuracy : 0.9693        
-##                  95% CI : (0.947, 0.984)
-##     No Information Rate : 0.2788        
+##                Accuracy : 0.9795        
+##                  95% CI : (0.96, 0.9911)
+##     No Information Rate : 0.2744        
 ##     P-Value [Acc > NIR] : < 2.2e-16     
 ##                                         
-##                   Kappa : 0.9612        
+##                   Kappa : 0.9741        
 ##  Mcnemar's Test P-Value : NA            
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            1.0000   0.9605   0.9242   0.9855   0.9577
-## Specificity            0.9929   0.9873   0.9908   0.9907   1.0000
-## Pos Pred Value         0.9820   0.9481   0.9531   0.9577   1.0000
-## Neg Pred Value         1.0000   0.9904   0.9847   0.9969   0.9907
-## Prevalence             0.2788   0.1944   0.1688   0.1765   0.1816
-## Detection Rate         0.2788   0.1867   0.1560   0.1739   0.1739
-## Detection Prevalence   0.2839   0.1969   0.1637   0.1816   0.1739
-## Balanced Accuracy      0.9965   0.9739   0.9575   0.9881   0.9789
-##  ......... completed proc_one_set with accuracy 0.969309462915601
+## Sensitivity            1.0000   0.9487   0.9692   1.0000   0.9714
+## Specificity            0.9929   0.9936   0.9938   0.9938   1.0000
+## Pos Pred Value         0.9817   0.9737   0.9692   0.9722   1.0000
+## Neg Pred Value         1.0000   0.9873   0.9938   1.0000   0.9938
+## Prevalence             0.2744   0.2000   0.1667   0.1795   0.1795
+## Detection Rate         0.2744   0.1897   0.1615   0.1795   0.1744
+## Detection Prevalence   0.2795   0.1949   0.1667   0.1846   0.1744
+## Balanced Accuracy      0.9965   0.9712   0.9815   0.9969   0.9857
+##  ......... completed proc_one_set with accuracy 0.979487179487179
 ```
-
-<img src="figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 ###     final submission
 
 ```r
@@ -346,9 +346,9 @@ predf[predf$accr==max(predf$accr),]
 
 ```
 ##   c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12 c13 c14 c15 c16 c17 c18 c19 c20
-## 1  B  A  B  A  A  E  D  D  A   A   B   C   B   A   E   E   A   B   A   B
+## 1  B  A  A  A  A  E  D  B  A   A   B   C   B   A   E   E   A   B   B   B
 ##        accr
-## 1 0.9693095
+## 1 0.9794872
 ```
 
 ```r
@@ -361,7 +361,7 @@ outofsampleerror
 ```
 
 ```
-## [1] 0.03069054
+## [1] 0.02051282
 ```
 
 
